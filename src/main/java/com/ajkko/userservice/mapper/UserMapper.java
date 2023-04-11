@@ -3,6 +3,7 @@ package com.ajkko.userservice.mapper;
 import com.ajkko.userservice.dto.UserDto;
 import com.ajkko.userservice.entity.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 public class UserMapper implements Mapper<UserDto, User>{
 
     private final RoleMapper roleMapper;
+    private final PasswordEncoder passwordEncoder;
 
     public User mapToEntity(UserDto dto) {
         return dto == null ? null
@@ -23,7 +25,7 @@ public class UserMapper implements Mapper<UserDto, User>{
                 dto.getUsername(),
                 dto.getFirstName(),
                 dto.getLastName(),
-                null,
+                passwordEncoder.encode(dto.getPassword()),
                 dto.getRoles().stream().
                         map(roleMapper::mapToEntity).collect(Collectors.toList())
         );

@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
-/**
- * Created by jt on 7/25/18.
- */
 @Component
 @RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {
@@ -22,9 +19,8 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        int count = 0;
 
-        if (count == 0 ){
+        if (roleService.getRoles().isEmpty() || userService.getUsers().isEmpty()){
             loadData();
         }
     }

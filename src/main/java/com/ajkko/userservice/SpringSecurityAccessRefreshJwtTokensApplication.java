@@ -9,5 +9,4 @@ public class SpringSecurityAccessRefreshJwtTokensApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringSecurityAccessRefreshJwtTokensApplication.class, args);
     }
-
 }

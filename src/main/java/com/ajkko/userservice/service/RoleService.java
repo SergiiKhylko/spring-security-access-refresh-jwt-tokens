@@ -1,7 +1,6 @@
 package com.ajkko.userservice.service;
 
 import com.ajkko.userservice.dto.RoleDto;
-import com.ajkko.userservice.entity.Role;
 
 import java.util.List;
 

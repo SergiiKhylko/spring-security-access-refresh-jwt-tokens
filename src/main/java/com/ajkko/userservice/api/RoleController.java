@@ -35,4 +35,3 @@ public class RoleController {
         return ResponseEntity.created(location).body(createdRole);
     }
 }
-
